@@ -18,6 +18,10 @@ Route::get("/editar_usuario/{id}", [UserController::class, 'formEditarUsuario'])
 
 Route::put("/editar_usuario/{id}", [UserController::class, 'editar']);
 
+
+
+
+
 // Rotas produto
 Route::get('/cadastro_produto', [ProdutoController::class, "formCriarProduto"]);
 
@@ -25,8 +29,19 @@ Route::post('/criar_produto', [ProdutoController::class, 'criar']);
 
 Route::get('/listar_produtos', [ProdutoController::class, 'listar']);
 
-// App
+Route::delete('/deletar_produto/{id}', [ProdutoController::class, 'formDeletarProduto']);
+
+
+
+
+
+
+// Tela inicial
 Route::get('/', [AppController::class, 'inicial']);
+
+
+
+
 
 // pedido
 

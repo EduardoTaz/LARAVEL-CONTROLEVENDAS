@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Criar usuario</title>
+    <link rel="stylesheet" href="{{url('css/pedido.css')}}">
 </head>
 <body>
   <div class="pedido">
@@ -19,14 +20,14 @@
       </select>
       <ul>
         @foreach($produtos as $produto)
-          <li>
+          <li class="produtos">
               <span>{{ $produto->nome }} - ${{ $produto->preco }}</span>
-              <input type="number" name="items[{{ $produto->id }}]" min="0" value="0">
+              <input type="number" name="items[{{ $produto->id }}]" {{$produto->quantidade}} min="0" value="0">
           </li>
         @endforeach
-    </ul>
+      </ul>
 
-      <button type="submit">Cadastrar</button>
+      <button type="submit" class="submit">Cadastrar</button>
     </form>
   </div>
 </body>
