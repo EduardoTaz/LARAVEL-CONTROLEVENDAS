@@ -10,7 +10,7 @@
   @if(count($produtos) == 0)
     <h3>Sem produtos</h3>      
   @else
-  <table border="1">
+  <table border="1" width="100%">
     <tr>
       <th>Nome</th>
       <th>Descrição</th>
@@ -22,7 +22,7 @@
           <td>{{$produto->descricao}}</td>
           <td>{{$produto->preco}}</td>
           <td>
-            <form method="POST" action="/deletar_produto/{{$produto->nome}}">
+            <form method="POST" action="/deletar_produto/{{$produto->id}}">
               @csrf
               {{ method_field("DELETE") }}
               <input type="submit" value="delete produto">
