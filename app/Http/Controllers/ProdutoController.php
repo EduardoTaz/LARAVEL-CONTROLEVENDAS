@@ -39,10 +39,29 @@ class ProdutoController extends Controller
         // 'pedido_produtos' é o nome da tabela no banco de dados que queremos acessar
         // where()  filtra os registros para encontrar apenas aqueles onde a coluna produto_id seja igual ao valor de $id
         // entao por causa disso produto_id deve ser igual ao $id do produto que estamos tentando excluir
-        // 
+  
         \DB::table('pedido_produtos')->where('produto_id', $id)->delete();
         
         $produto -> find($id) -> delete(); // deleta o cadastro
+
+        return redirect('/listar_produtos');
+    }   
+
+    
+
+    public function formEditarProduto($id) {
+        $produto = Produto::find($id);
+
+        return view("editar_produto", ["produto" => $produto]);
+
+    }
+
+    public function editar(Request $request) {
+        Produto::where('id', $request->id) -> update([
+            'nome' => $request -> nome,
+            'descricao' => $request -> descricao,
+            'preco' => $request -> preco
+        ]);
 
         return redirect('/listar_produtos');
     }
