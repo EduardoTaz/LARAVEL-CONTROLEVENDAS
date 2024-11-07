@@ -6,6 +6,8 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\PedidoController;
 use Illuminate\Support\Facades\Route;
 
+
+// USUARIOS
 Route::get('/cadastro_usuario', [UserController::class, "formCriarUsuario"]);
 
 Route::get('/listar_usuarios', [UserController::class, 'listar']);
@@ -20,9 +22,7 @@ Route::put("/editar_usuario/{id}", [UserController::class, 'editar']);
 
 
 
-
-
-// Rotas produto
+// PRDUTOS
 Route::get('/cadastro_produto', [ProdutoController::class, "formCriarProduto"]);
 
 Route::post('/criar_produto', [ProdutoController::class, 'criar']);
@@ -36,15 +36,14 @@ Route::delete('/deletar_produto/{id}', [ProdutoController::class, 'formDeletarPr
 
 
 
-// Tela inicial
+// TEL INICIALÇ
 Route::get('/', [AppController::class, 'inicial']);
 
 
 
 
 
-// pedido
-
+// PEIDOS
 Route::get('/cadastro_pedido', [PedidoController::class, 'formCadastrarPedido']);
 
 Route::post('/criar_pedido', [PedidoController::class, 'cadastrar']);
